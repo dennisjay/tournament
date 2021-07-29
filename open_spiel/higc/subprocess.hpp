@@ -1,7 +1,7 @@
 #include <string>
 #include <vector>
 #include <sys/wait.h>
-#include <sys/prctl.h>
+
 #include <fcntl.h>
 
 namespace subprocess {
@@ -62,7 +62,7 @@ class popen {
     }
 
     // Ask kernel to deliver SIGTERM in case the parent dies.
-    prctl(PR_SET_PDEATHSIG, SIGTERM);
+    //prctl(PR_SET_PDEATHSIG, SIGTERM);
 
     close(in_pipe[READ]);
     close(in_pipe[WRITE]);
